@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+
+    <!--=============== REMIX ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <title>Porsche Cars</title>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Porsche</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#popular" class="nav__link">Models</a></li>
+                    <li class="nav__item"><a href="#featured" class="nav__link">Featured</a></li>
+                    <li class="nav__item"><a href="{{ url_for('contact') }}" class="nav__link">Contact</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title">Welcome to Porsche</h1>
+                    <p class="home__description">The Epitome of Luxury and Performance</p>
+                </div>
+                <img src="{{ url_for('static', filename='images/porsche-home.jpg') }}" alt="Porsche Car" class="home__img">
+            </div>
+        </section>
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <div class="about__container container grid">
+                <div class="about__data">
+                    <h2 class="about__title">About Porsche</h2>
+                    <p class="about__description">Porsche AG, founded in 1931 by Ferdinand Porsche, is a German automobile manufacturer specializing in high-performance sports cars, SUVs, and sedans. Porsche is renowned for its superior engineering, luxury, and unmatched driving experience.</p>
+                </div>
+                <img src="{{ url_for('static', filename='images/porsche-about.jpg') }}" alt="Porsche Logo" class="about__img">
+            </div>
+        </section>
+
+        <!--==================== POPULAR ====================-->
+        <section class="popular section" id="popular">
+            <h2 class="section__title">Our Models</h2>
+            <div class="popular__container container grid">
+                <div class="popular__card">
+                    <img src="{{ url_for('static', filename='images/porsche-911.jpg') }}" alt="Porsche 911" class="popular__img">
+                    <h3 class="popular__name">Porsche 911</h3>
+                    <p class="popular__description">Iconic design, superior performance.</p>
+                </div>
+                <div class="popular__card">
+                    <img src="{{ url_for('static', filename='images/porsche-cayenne.jpg') }}" alt="Porsche Cayenne" class="popular__img">
+                    <h3 class="popular__name">Porsche Cayenne</h3>
+                    <p class="popular__description">Performance meets luxury in an SUV.</p>
+                </div>
+                <div class="popular__card">
+                    <img src="{{ url_for('static', filename='images/porsche-taycan.jpg') }}" alt="Porsche Taycan" class="popular__img">
+                    <h3 class="popular__name">Porsche Taycan</h3>
+                    <p class="popular__description">Innovative all-electric sports car.</p>
+                </div>
+                <!-- Add more models as needed -->
+            </div>
+        </section>
+
+        <!--==================== FEATURES ====================-->
+        <section class="features section">
+            <h2 class="section__title">Features</h2>
+            <div class="features__container container grid">
+                <!-- Feature 1 -->
+                <div class="features__content">
+                    <h3 class="features__title">Feature 1</h3>
+                    <p class="features__description">Description of Feature 1</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="features__content">
+                    <h3 class="features__title">Feature 2</h3>
+                    <p class="features__description">Description of Feature 2</p>
+                </div>
+                <!-- Add more features as needed -->
+            </div>
+        </section>
+
+        <!--==================== FEATURED ====================-->
+        <section class="featured section" id="featured">
+            <h2 class="section__title">Featured Models</h2>
+            <div class="featured__container container grid">
+                <!-- Featured Model 1 -->
+                <div class="featured__card">
+                    <img src="{{ url_for('static', filename='images/porsche-911.jpg') }}" alt="Porsche 911" class="featured__img">
+                    <h3 class="featured__name">Porsche 911</h3>
+                </div>
+                <!-- Add more featured models as needed -->
+            </div>
+        </section>
+
+        <!--==================== OFFER ====================-->
+        <section class="offer section">
+            <h2 class="section__title">Special Offers</h2>
+            <div class="offer__container container grid">
+                <!-- Offer 1 -->
+                <div class="offer__card">
+                    <h3 class="offer__title">Offer 1</h3>
+                    <p class="offer__description">Details of Offer 1</p>
+                </div>
+                <!-- Add more offers as needed -->
+            </div>
+        </section>
+
+        <!--==================== LOGOS ====================-->
+        <section class="logos section">
+            <h2 class="section__title">Our Partners</h2>
+            <div class="logos__container container grid">
+                <!-- Logo 1 -->
+                <div class="logos__content">
+                    <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo 1" class="logos__img">
+                </div>
+                <!-- Add more logos as needed -->
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container">
+            <h2 class="footer__title">Porsche</h2>
+            <p class="footer__description">The Epitome of Luxury and Performance</p>
+        </div>
+    </footer>
+
+    <!--=============== SCROLL REVEAL ===============-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!--=============== MIXITUP JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/mixitup@3.3.1/dist/mixitup.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

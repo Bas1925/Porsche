@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #000;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav__menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__item {
+    margin: 0 1rem;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav__link:hover, .nav__link.active-link {
+    text-decoration: underline;
+}
+
+.main {
+    padding: 2rem;
+}
+
+.section {
+    margin: 2rem 0;
+}
+
+.home__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.home__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.home__description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.home__img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+.about__container, .popular__container, .features__container, .featured__container, .offer__container, .logos__container, .contact__container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: center;
+}
+
+.about__data, .popular__card, .features__content, .featured__card, .offer__card, .logos__content, .contact__form {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about__img, .popular__img, .featured__img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.popular__name, .features__title, .featured__name, .offer__title, .logos__title, .footer__title {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.popular__description, .features__description, .offer__description, .footer__description {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.footer {
+    background-color: #000;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
