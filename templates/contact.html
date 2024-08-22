@@ -1,93 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
-
-    <!--=============== REMIX ICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
-    <title>Contact Us - Porsche Cars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Website Design - Easy Tutorials</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Porsche</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="{{ url_for('home') }}" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="{{ url_for('home') }}#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="{{ url_for('home') }}#popular" class="nav__link">Models</a></li>
-                    <li class="nav__item"><a href="{{ url_for('home') }}#featured" class="nav__link">Featured</a></li>
-                    <li class="nav__item"><a href="{{ url_for('contact') }}" class="nav__link active-link">Contact</a></li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
-            </div>
-        </nav>
-    </header>
+  <div class="header" id="header">
+      <nav>
+          <img src="{{ url_for('static', filename='imgp/porsche_logo_PNG1.png') }}" class="logo">
+          <ul>
+              <li><a href="#" id="911">Porsche 911</a></li>
+              <li><a href="#" id="911-S">Porsche 911 S</a></li>
+              <li><a href="#" id="911-GTS">Porsche 911 GTS</a></li>
+              <li><a href="#" id="911-GT3">Porsche 911 GT3</a></li>
+              <li><a href="#" id="911-RS">Porsche 911 RS</a></li>
+          </ul>
+          <a href="#" class="btn">Reserve Now</a>
+      </nav>
+      <div class="info" id="info-container">
+          <!-- Default information for Porsche 911 -->
+          <div id="info-911">
+              <div>
+                  <h2>3,9 S</h2>
+                  <p>Acceleration 0 - 100 km/h with Sport Chrono Package</p>
+              </div>
+              <div>
+                  <h2>290 kW / 394 PS</h2>
+                  <p>Power (kW)/Power (PS)</p>
+              </div>
+              <div>
+                  <h2>294 km/h</h2>
+                  <p>Top speed</p>
+              </div>
+              <div>
+                  <h2>379 hp</h2>
+                  <p>Power (hp)</p>
+              </div>
+              <div class="line"></div>
+              <div>
+                  <h2>911 Carrera</h2>
+              </div>
+          </div>
 
-    <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== CONTACT ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Us</h2>
-            <div class="contact__container container grid">
-                <form class="contact__form">
-                    <div class="contact__inputs">
-                        <div class="contact__content">
-                            <label for="name" class="contact__label">Name:</label>
-                            <input type="text" id="name" name="name" class="contact__input" required>
-                        </div>
-                        <div class="contact__content">
-                            <label for="email" class="contact__label">Email:</label>
-                            <input type="email" id="email" name="email" class="contact__input" required>
-                        </div>
-                    </div>
-                    <div class="contact__content">
-                        <label for="message" class="contact__label">Message:</label>
-                        <textarea id="message" name="message" class="contact__input" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="button">Send</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+          <!-- Information for Porsche 911 S -->
+          <div id="info-911-S" style="display: none;">
+              <div>
+                  <h2>3,5 S</h2>
+                  <p>Acceleration 0 - 100 km/h with Sport Chrono Package</p>
+              </div>
+              <div>
+                  <h2>286 kW / 525 PS</h2>
+                  <p>Power (kW)/Power (PS)</p>
+              </div>
+              <div>
+                  <h2>307 km/h</h2>
+                  <p>Top speed</p>
+              </div>
+              <div>
+                  <h2>478 hp</h2>
+                  <p>Power (hp)</p>
+              </div>
+              <div class="line"></div>
+              <div>
+                  <h2>911 Carrera S</h2>
+              </div>
+          </div>
 
-    <!--==================== FOOTER ====================-->
-    <footer class="footer section">
-        <div class="footer__container container">
-            <h2 class="footer__title">Porsche</h2>
-            <p class="footer__description">The Epitome of Luxury and Performance</p>
-        </div>
-    </footer>
+          <!-- Information for Porsche 911 GTS -->
+          <div id="info-911-GTS" style="display: none;">
+              <div>
+                  <h2>3 S</h2>
+                  <p>Acceleration 0 - 100 km/h with Sport Chrono Package</p>
+              </div>
+              <div>
+                  <h2>398 kW / 541 PS</h2>
+                  <p>Power (kW)/Power (PS)</p>
+              </div>
+              <div>
+                  <h2>312 km/h</h2>
+                  <p>Top speed</p>
+              </div>
+              <div>
+                  <h2>532 hp</h2>
+                  <p>Power (hp)</p>
+              </div>
+              <div class="line"></div>
+              <div>
+                  <h2>911 Carrera GTS</h2>
+              </div>
+          </div>
 
-    <!--=============== SCROLL REVEAL ===============-->
-    <script src="https://unpkg.com/scrollreveal"></script>
+          <!-- Information for Porsche 911 GT3 -->
+          <div id="info-911-GT3" style="display: none;">
+              <div>
+                  <h2>3,4 S</h2>
+                  <p>Acceleration 0 - 100 km/h with Sport Chrono Package</p>
+              </div>
+              <div>
+                  <h2>375 kW / 510 PS</h2>
+                  <p>Power (kW)/Power (PS)</p>
+              </div>
+              <div>
+                  <h2>318 km/h</h2>
+                  <p>Top speed</p>
+              </div>
+              <div>
+                  <h2>502 hp</h2>
+                  <p>Power (hp)</p>
+              </div>
+              <div class="line"></div>
+              <div>
+                  <h2>911 GT3</h2>
+              </div>
+          </div>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+          <!-- Information for Porsche 911 RS -->
+          <div id="info-911-RS" style="display: none;">
+              <div>
+                  <h2>3,2 S</h2>
+                  <p>Acceleration 0 - 100 km/h with Sport Chrono Package</p>
+              </div>
+              <div>
+                  <h2>386 kW / 525 PS</h2>
+                  <p>Power (kW)/Power (PS)</p>
+              </div>
+              <div>
+                  <h2>296 km/h</h2>
+                  <p>Top speed</p>
+              </div>
+              <div>
+                  <h2>518 hp</h2>
+                  <p>Power (hp)</p>
+              </div>
+              <div class="line"></div>
+              <div>
+                  <h2>911 Carrera RS</h2>
+              </div>
+          </div>
+      </div>
+  </div>
 
-    <!--=============== MIXITUP JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/mixitup@3.3.1/dist/mixitup.min.js"></script>
+  <script>
+    var header = document.getElementById("header");
+    var infoContainer = document.getElementById("info-container");
 
-    <!--=============== MAIN JS ===============-->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    var Carrera = document.getElementById("911");
+    var S = document.getElementById("911-S");
+    var GTS = document.getElementById("911-GTS");
+    var GT3 = document.getElementById("911-GT3");
+    var RS = document.getElementById("911-RS");
+
+    Carrera.onclick = function () {
+        header.style.backgroundImage = "url('{{ url_for('static', filename='imgp/iris (6).webp') }}')";
+        showInfo('info-911');
+    }
+    S.onclick = function () {
+        header.style.backgroundImage = "url('{{ url_for('static', filename='imgp/iris (37).webp') }}')";
+        showInfo('info-911-S');
+    }
+    GTS.onclick = function () {
+        header.style.backgroundImage = "url('{{ url_for('static', filename='imgp/iris (43).webp') }}')";
+        showInfo('info-911-GTS');
+    }
+    GT3.onclick = function () {
+        header.style.backgroundImage = "url('{{ url_for('static', filename='imgp/iris (22).webp') }}')";
+        showInfo('info-911-GT3');
+    }
+    RS.onclick = function () {
+        header.style.backgroundImage = "url('{{ url_for('static', filename='imgp/iris (29).webp') }}')";
+        showInfo('info-911-RS');
+    }
+
+    function showInfo(infoId) {
+        var infos = infoContainer.children;
+        for (var i = 0; i < infos.length; i++) {
+            infos[i].style.display = 'none';
+        }
+        document.getElementById(infoId).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
