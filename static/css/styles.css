@@ -1,166 +1,1210 @@
-/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
+/* Universal Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.header {
-  width: 100%;
-  height: 100vh;
-  background-image: url('/static/imgp/iris (22).webp');
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background to enhance text visibility */
-  background-position: center;
-  background-blend-mode: multiply;
-  background-size: cover;
-  padding: 0 7%;
-  transition: background-image 1s; /* Smooth transition when changing images */
-
+/* General HTML Styles */
+html {
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
 }
 
 /* Navigation Bar */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+}
+
+.nav-container ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.nav-container ul li {
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-container ul li:hover,
+.nav-container .icons i:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .logo {
-  width: 100px;
-  cursor: pointer;
+    height: 100px;
+    width: auto;
+    cursor: pointer;
 }
 
-nav ul {
-  flex: 1;
-  text-align: center;
+.nav-container .icons {
+    display: flex;
+    gap: 10px;
+    font-size: 25px;
+    cursor: pointer;
 }
 
-nav ul li {
-  display: inline-block;
-  margin: 10px 20px;
+.nav-container .icons i {
+    border-radius: 50%;
+    padding: 3px;
+    transition: background-color 0.3s;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-
-}
-
-nav ul li a:hover {
-  color: #ccc; /* Softer hover effect */
-}
-
-nav .btn {
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid #fff;
-  padding: 10px 30px;
-  border-radius: 30px;
-  margin-right: 7%;
-  transition: background-color 0.3s ease;
-}
-
-nav .btn:hover {
-  background-color: #444; /* Darken button background on hover */
-}
-
-/* Info Section */
-.info {
-  width: 80%;
-  padding: 0 7%; /* Adjusted padding for content */
-  display: flex; /* Using flex for alignment */
-  align-items: center;
-  color: #fff;
-  position: fixed;
-  bottom: 0px;
-  left: 50%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  border-radius: 10px 10px 0 0; /* Rounded top corners */
-  z-index: 200;
-}
-
-.info div {
-  margin: 0 20px; /* Space between content inside info box */
-}
-
-.info div h2 {
-  font-size: 44px;
-  font-weight: 400;
-}
-
-.info p {
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-
-.info .line {
-  flex: 1;
-  background: #fff;
-  height: 4px;
-  margin: 50px 0;
-}
-
-/* Control visibility of different info sections */
-.info#911-info {
-  display: block;
-}
-
-.info#911-S-info,
-.info#911-GTS-info,
-.info#911-GT3-info,
-.info#911-RS-info {
-  display: none;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .header {
-    padding: 0 5%;
-  }
-
-  nav ul {
+/* Page Layout */
+.pages {
+    display: flex;
     flex-direction: column;
-    background-color: rgba(51, 51, 51, 0.9);
-    position: absolute;
-    top: 60px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 60px);
-    transition: left 0.3s ease;
-  }
-
-  nav ul.show {
-    left: 0;
-  }
-
-  nav ul li {
-    margin: 15px 0;
-  }
-
-  nav .btn {
-    margin-top: 20px;
-  }
-
-  .info {
-    padding: 10px 5%;
-  }
-
-  .info div h2 {
-    font-size: 10px;
-  }
-
-  .info p {
-    font-size: 10px;
-  }
-
-  .info .line {
-    margin: 10px 0;
-  }
+    justify-content: center;
+    list-style: none;
+    text-align: center;
 }
+
+.pages li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 100px 0 10px 0;
+    color: #fff;
+    scroll-snap-align: start;
+}
+
+.pages li video,
+.pages li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(70%);
+}
+
+/* Page Info */
+.page-info h1 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.page-info p {
+    font-size: 10px;
+    color: #fff;
+    margin-top: 3px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-info h3 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
+}
+
+/* Description styling */
+.page-info.description {
+    font-size: 12px;
+    color: white;
+}
+
+/* Larger disclaimer text */
+.page-footer p,
+.page-footer a {
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Footer */
+.page-footer .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.page-footer .buttons button {
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-footer .buttons button:hover {
+    transform: translateY(-3px);
+}
+
+.page-footer .buttons button:first-child {
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #fff;
+}
+
+.page-footer .buttons button:last-child {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.page-footer .buttons.inverted button:first-child {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.page-footer .buttons.inverted button:last-child {
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #fff;
+}
+
+.page-footer .buttons.demo-drive button {
+    background-color: transparent;
+    color: red;
+    border: 10px solid grey;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-footer .buttons.demo-drive button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Animations and Transitions */
+#911-info,
+#911-footer {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 3s, transform 3s;
+}
+
+#911-info.visible,
+#911-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal styles for user sign-in and sign-up */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+.form-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff0000; /* Porsche red for headers */
+}
+
+.form-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-button:hover {
+    background-color: #e60000;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.form-footer a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-footer a:hover {
+    color: #e60000;
+}
+
+/* Region Dropdown Styles */
+.region-modal {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.region-modal-content {
+    padding: 20px;
+}
+
+.region-modal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.region-section {
+    margin-bottom: 20px;
+}
+
+.region-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.region-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.region-section ul li {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.region-section ul li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Tooltip styles for help */
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    top: 80px;
+    right: 100px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip.visible {
+    display: block;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+/* Universal Styles */
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General HTML Styles */
+html {
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+/* Navigation Bar */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+}
+
+.nav-container ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.nav-container ul li {
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-container ul li:hover,
+.nav-container .icons i:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    cursor: pointer;
+}
+
+.nav-container .icons {
+    display: flex;
+    gap: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.nav-container .icons i {
+    border-radius: 50%;
+    padding: 3px;
+    transition: background-color 0.3s;
+}
+
+/* Page Layout */
+.pages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+}
+
+.pages li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 100px 0 10px 0;
+    color: #fff;
+    scroll-snap-align: start;
+}
+
+.pages li video,
+.pages li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(70%);
+}
+
+/* Page Info */
+.page-info h1 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.page-info p {
+    font-size: 10px;
+    color: #fff;
+    margin-top: 3px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-info h3 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
+}
+
+/* Description styling */
+.page-info.description {
+    font-size: 12px;
+    color: white;
+}
+
+/* Larger disclaimer text */
+.page-footer p,
+.page-footer a {
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Footer */
+.page-footer .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.page-footer .buttons button {
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-footer .buttons button:hover {
+    transform: translateY(-3px);
+}
+
+.page-footer .buttons button:first-child {
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #fff;
+}
+
+.page-footer .buttons button:last-child {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.page-footer .buttons.inverted button:first-child {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.page-footer .buttons.inverted button:last-child {
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #fff;
+}
+
+.page-footer .buttons.demo-drive button {
+    background-color: transparent;
+    color: red;
+    border: 10px solid grey;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-footer .buttons.demo-drive button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Animations and Transitions */
+#911-info,
+#911-footer {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 3s, transform 3s;
+}
+
+#911-info.visible,
+#911-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal styles for user sign-in and sign-up */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+.form-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff0000; /* Porsche red for headers */
+}
+
+.form-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-button:hover {
+    background-color: #e60000;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.form-footer a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-footer a:hover {
+    color: #e60000;
+}
+
+/* Region Dropdown Styles */
+.region-modal {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.region-modal-content {
+    padding: 20px;
+}
+
+.region-modal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.region-section {
+    margin-bottom: 20px;
+}
+
+.region-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.region-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.region-section ul li {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.region-section ul li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Tooltip styles for help */
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    top: 80px;
+    right: 100px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip.visible {
+    display: block;
+}
+/* Modal Container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Deep black with transparency */
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    padding: 20px; /* Add padding for smaller screens */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #f5f5f5; /* Soft off-white */
+    border-radius: 12px;
+    max-width: 650px;
+    width: 100%; /* Ensures it adapts to smaller screens */
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deep shadow for luxury feel */
+    font-family: 'Helvetica Neue', sans-serif; /* Clean, modern font */
+    position: relative;
+    overflow: hidden; /* Prevents content from spilling out */
+}
+
+/* Porsche-Themed Heading */
+.modal-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #b9975b; /* Gold color */
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+}
+
+/* Form Labels */
+.modal-content label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Form Input Fields */
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content input[type="checkbox"],
+.modal-content select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Highlight border on focus */
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #b9975b; /* Gold border on focus */
+}
+
+/* Checkbox Label */
+.modal-content label[for="energyProducts"] {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+
+/* Porsche-Themed Button */
+.form-button {
+    background-color: #000; /* Black background */
+    color: #b9975b; /* Gold text */
+    border: 2px solid #b9975b; /* Gold border */
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+/* Hover effect for button */
+.form-button:hover {
+    background-color: #b9975b; /* Gold background */
+    color: #fff; /* White text */
+    border-color: #b9975b; /* Gold border */
+}
+
+/* Close Button */
+.close {
+    color: #000;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #b9975b; /* Gold color on hover */
+}
+
+/* Text Styling */
+.modal-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Gold link for terms */
+.modal-content a {
+    color: #b9975b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        max-width: 100%; /* Ensure it fits smaller screens */
+    }
+
+    .modal-content h2 {
+        font-size: 2rem;
+    }
+
+    .form-button {
+        font-size: 1rem;
+    }
+}
+/*ordernow modal*/
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    flex: 2;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-row textarea {
+    resize: vertical;
+    height: 50px;
+}
+
+.form-row.full-width {
+    flex-direction: column;
+}
+
+.full-width textarea,
+.full-width input,
+.full-width select {
+    width: 100%;
+    margin-right: 0;
+}
+
+.form-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-button:hover {
+    background-color: #333;
+}
+
+.modal-content {
+    width: 80%;
+    margin: auto;
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+/*lets try*/
+/* Full-width dropdown for a premium look */
+.dropdown-content.full-width {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw; /* Full screen width */
+    background-color: white; /* Clean white background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deep shadow for elegance */
+    padding: 30px 40px; /* Spacious padding */
+    z-index: 1000;
+    box-sizing: border-box;
+    border-top: 2px solid #c00; /* Porsche signature red highlight */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Vehicle grid layout for Porsche design */
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Larger vehicle items */
+    gap: 30px; /* More space between vehicle items */
+    max-width: 1400px; /* Keep content centered */
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Styling each vehicle item */
+.vehicle-item {
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth hover effects */
+    border-radius: 10px; /* Rounded edges for a premium look */
+    padding: 15px;
+    background-color: grey; /* Light gray background for vehicle blocks */
+}
+
+.vehicle-item:hover {
+    transform: scale(1.05); /* Subtle zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Lift effect */
+}
+
+/* Larger, bold vehicle images */
+.vehicle-item img {
+    width: 180px; /* Larger car images to emphasize vehicles */
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px; /* Smooth, rounded edges */
+}
+
+/* Vehicle name styling */
+.vehicle-item p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111; /* Classic dark text */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* For a clean, Porsche-like style */
+}
+
+/* Links for Learn and Order */
+.vehicle-item a {
+    font-size: 16px;
+    color: #c00; /* Porsche red */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.vehicle-item a:hover {
+    color: #990000; /* Darker red on hover */
+    text-decoration: underline; /* Subtle underline on hover */
+}
+
+/* Show Dropdown */
+.dropdown:hover .dropdown-content.full-width {
+    display: block;
+}
+
+/* Styling for the 'Vehicles' word */
+.nav-container ul li a {
+    color: white ;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav-container ul li a:hover {
+    color: darkgoldenrod; /* Slight gray on hover to match design */
+}
+
+/*discover */
+/* Full-width dropdown for Discover (hidden by default) */
+.dropdown-content.discover-dropdown {
+    display: none; /* Hidden initially, shown only by JavaScript */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw; /* Full screen width */
+    background-color: white; /* Clean white background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deep shadow for elegance */
+    padding: 30px 40px; /* Spacious padding */
+    z-index: 1000;
+    box-sizing: border-box;
+    border-top: 2px solid #c00; /* Porsche signature red highlight */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow-x: auto; /* Horizontal scroll for responsiveness */
+}
+
+/* Discover items displayed side by side */
+.discover-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%; /* Adjust width for side-by-side layout */
+    margin-right: 20px; /* Space between items */
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth hover effects */
+    border-radius: 10px; /* Rounded edges for a premium look */
+    padding: 15px;
+    background-color: grey; /* Light gray background for discover blocks */
+}
+
+.discover-item:last-child {
+    margin-right: 0; /* Remove right margin on the last item */
+}
+
+/* Hover effect for Discover items */
+.discover-item:hover {
+    transform: scale(1.05); /* Subtle zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Lift effect */
+}
+
+/* Larger, bold images */
+.discover-item img {
+    width: 180px; /* Larger images to emphasize */
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px; /* Smooth, rounded edges */
+}
+
+/* Discover item name styling */
+.discover-item p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111; /* Classic dark text */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* For a clean, Porsche-like style */
+}
+
+/* Links for Explore */
+.discover-item a {
+    font-size: 16px;
+    color: #c00; /* Porsche red */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.discover-item a:hover {
+    color: #990000; /* Darker red on hover */
+    text-decoration: underline; /* Subtle underline on hover */
+}
+/* Logout Button Styles */
+/* Logout Icon Styling */
+#logoutIcon {
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+#logoutIcon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Icon container styling (ensuring proper alignment) */
+.nav-container .icons {
+    display: flex;
+    gap: 15px; /* Space between the icons */
+    align-items: center; /* Align the icons vertically */
+}
+/*************
+/* Style the carousel images */
+.carousel-images {
+    display: flex;
+    justify-content: center; /* Center the radio buttons */
+    margin-top: 10px; /* Space between the image and buttons */
+}
+
+/* Align the radio buttons */
+input[type="radio"] + label {
+    margin-right: 10px; /* Space between labels and radio buttons */
+}
+
+
+/* Styling the radio buttons */
+input[type="radio"] {
+    appearance: none; /* Hide default radio button appearance */
+    width: 15px;
+    height: 15px;
+    border: 2px solid #888; /* Border color */
+    border-radius: 50%; /* Round radio buttons */
+    margin: 10px 5px; /* Space around the buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+/* Checked state for radio buttons */
+input[type="radio"]:checked {
+    background-color: #000; /* Change color when selected */
+    border-color: #000; /* Darker border when selected */
+}
+
+/* Hover effect for radio buttons */
+input[type="radio"]:hover {
+    background-color: #ccc; /* Light hover effect */
+}
+
